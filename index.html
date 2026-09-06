@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101415">
+  <meta name="description" content="An ASCII arcade survival game. Pilot with WASD, dodge the swarm, and chase your high score. Play instantly in your browser.">
+  <title>Terminal Shooter / ASCII arcade</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23101415'/%3E%3Ctext x='12' y='46' fill='%237ddbd5' font-size='48' font-family='monospace'%3E%5E%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./web/style.css">
+</head>
+<body>
+  <main>
+    <header class="masthead">
+      <h1><span class="prompt" aria-hidden="true">&gt;_</span> terminal-shooter<span class="cursor" aria-hidden="true">▮</span></h1>
+      <span class="edition">ASCII ARCADE / WEB EDITION</span>
+    </header>
+    <section class="console" aria-label="Terminal shooter game">
+      <div class="console-bar"><span><span class="signal" aria-hidden="true">●</span> <span id="status" role="status">SYSTEM READY</span></span><span class="session-label">60 × 28 <span class="divider">/</span> SURVIVAL</span></div>
+      <div class="viewport">
+        <canvas id="screen" width="1024" height="600" tabindex="0" aria-label="ASCII shooter playfield" aria-describedby="instructions">Your browser needs canvas to play Terminal Shooter.</canvas>
+        <div id="overlay" class="overlay">
+          <div class="launch">
+            <p id="overlay-kicker" class="eyebrow">PILOT CONSOLE / 01</p>
+            <pre class="ship" aria-hidden="true">   |
+  /A\
+ &lt;===&gt;
+  / \  </pre>
+            <h2 id="overlay-title">Clear for launch.</h2>
+            <p id="overlay-copy">Dodge the swarm. Stay alive.<br>Every wave hits harder.</p>
+            <button id="play" class="primary">Start run <span aria-hidden="true">↵</span></button>
+            <p class="launch-note">WASD / arrows to move · autofire is on</p>
+          </div>
+        </div>
+      </div>
+      <div class="telemetry"><span>LOCAL BEST <strong id="best">000000</strong></span><span id="flight-note">AWAITING PILOT</span></div>
+    </section>
+    <nav class="commands" aria-label="Game commands">
+      <div class="command-group"><button id="pause"><kbd>P</kbd> Pause</button><button id="restart"><kbd>R</kbd> Restart</button><button id="fire" aria-pressed="true"><kbd>Space</kbd> Autofire <span class="value">on</span></button></div>
+      <div class="command-group"><button id="music" aria-pressed="false"><kbd>M</kbd> Music <span class="value">off</span></button><button id="theme" aria-pressed="false"><kbd>T</kbd> Light</button></div>
+    </nav>
+    <div class="touch-controls" aria-label="Touch movement">
+      <div class="direction-pad"><button data-key="arrowleft" aria-label="Move left">←</button><button data-key="arrowup" aria-label="Move up">↑</button><button data-key="arrowdown" aria-label="Move down">↓</button><button data-key="arrowright" aria-label="Move right">→</button></div><span>or drag the playfield</span>
+    </div>
+    <footer id="instructions"><p><span class="footer-label">FLIGHT MANUAL</span> <kbd>W A S D</kbd> / <kbd>↑ ← ↓ →</kbd> move <span class="separator">·</span> <kbd>Space</kbd> toggle autofire <span class="separator">·</span> <kbd>P</kbd> pause</p><p>One ship. No finish line.</p></footer>
+    <noscript><p class="noscript">Enable JavaScript to launch the game.</p></noscript>
+  </main>
+  <script type="module" src="./web/app.js"></script>
+</body>
+</html>
